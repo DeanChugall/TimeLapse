@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">Time Lapse</string>
+    <string name="dialog_message">Do you wish to save these settings?</string>
+    <string name="dialog_title">Save Settings</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="title">Time Lapse</string>
+    <string name="capture_title">Capture</string>
+    <string name="settings_title">Settings</string>
+    <string name="gallery_title">Gallery</string>
+    <string name="frame_interval">Frame Interval</string>
+    <string name="frame_interval_hint">2</string>
+    <string name="quality">Quality</string>
+    <string name="quality_choice_low">Low</string>
+    <string name="quality_choice_high">High</string>
+    <string name="save_settings_button">Save Settings</string>
+    <string name="mode">Mode</string>
+    <string name="mode_choice_auto">Auto</string>
+    <string name="mode_choice_manual">Manual</string>
+    <string name="waiting">Waiting...</string>
+
+    <string-array name="frame_interval_type_spinner">
+        <item>Milliseconds</item>
+        <item>Seconds</item>
+        <item>Minutes</item>
+        <item>Hours</item>
+    </string-array>
+    <string name="title_activity_camera_new">Camera_new</string>
+    <string name="camera">Camera</string>
+    <string name="front">Front</string>
+    <string name="rear">Rear</string>
+</resources>
