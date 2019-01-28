@@ -1,49 +1,32 @@
 package com.example.michaela.timelapse;
-/*
- * Edited for timelapse by Michaela DeForest and Julia Ramsey
- *
- *
- * Original Code from:
- * Copyright (C) 2013 The Android Open Source Project
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 
-        import android.annotation.TargetApi;
-        import android.content.SharedPreferences;
-        import android.hardware.Camera;
-        import android.media.CamcorderProfile;
-        import android.media.MediaRecorder;
-        import android.media.MediaScannerConnection;
-        import android.os.AsyncTask;
-        import android.os.Build;
-        import android.os.Bundle;
-        import android.preference.PreferenceManager;
-        import android.support.v7.app.AppCompatActivity;
-        import android.util.Log;
-        import android.view.TextureView;
-        import android.view.View;
-        import android.view.WindowManager;
-        import android.widget.Button;
-        import android.widget.Toast;
-        import java.io.File;
-        import java.io.IOException;
-        import java.util.List;
+
+import android.annotation.TargetApi;
+import android.content.SharedPreferences;
+import android.hardware.Camera;
+import android.media.CamcorderProfile;
+import android.media.MediaRecorder;
+import android.media.MediaScannerConnection;
+import android.os.AsyncTask;
+import android.os.Build;
+import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.TextureView;
+import android.view.View;
+import android.view.WindowManager;
+import android.widget.Button;
+import android.widget.Toast;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.List;
 
 /**
- *  This activity uses the camera/camcorder as the A/V source for the {@link android.media.MediaRecorder} API.
- *  A {@link android.view.TextureView} is used as the camera preview which limits the code to API 14+. This
- *  can be easily replaced with a {@link android.view.SurfaceView} to run on older devices.
+ * This activity uses the camera/camcorder as the A/V source for the {@link android.media.MediaRecorder} API.
+ * A {@link android.view.TextureView} is used as the camera preview which limits the code to API 14+. This
+ * can be easily replaced with a {@link android.view.SurfaceView} to run on older devices.
  */
 public class CameraActivity extends AppCompatActivity {
 
@@ -122,7 +105,7 @@ public class CameraActivity extends AppCompatActivity {
         releaseCamera();
     }
 
-    private void releaseMediaRecorder(){
+    private void releaseMediaRecorder() {
         if (mMediaRecorder != null) {
             // clear recorder configuration
             mMediaRecorder.reset();
@@ -135,15 +118,15 @@ public class CameraActivity extends AppCompatActivity {
         }
     }
 
-    private void releaseCamera(){
-        if (mCamera != null){
+    private void releaseCamera() {
+        if (mCamera != null) {
             mCamera.release();
             mCamera = null;
         }
     }
 
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
-    private boolean prepareVideoRecorder(){
+    private boolean prepareVideoRecorder() {
 
         //Open rear or front camera based on user settings
         String cameraChoice = sharedPref.getString("Camera", "rear");
@@ -199,7 +182,7 @@ public class CameraActivity extends AppCompatActivity {
 
         //set frame rate
         double frameRate = convertUnits();
-        Log.d(TAG, "frameRate: "+frameRate);
+        Log.d(TAG, "frameRate: " + frameRate);
         mMediaRecorder.setCaptureRate(frameRate);
 
 
@@ -267,19 +250,19 @@ public class CameraActivity extends AppCompatActivity {
 
         switch (unitChoice) {
             case "Milliseconds":
-                return 1000/frameInterval;
+                return 1000 / frameInterval;
 
             case "Seconds":
-                return 1/frameInterval;
+                return 1 / frameInterval;
 
             case "Minutes":
-                return 1/(60*frameInterval);
+                return 1 / (60 * frameInterval);
 
             case "Hours":
-                return 1/(3600*frameInterval);
+                return 1 / (3600 * frameInterval);
 
             case "Days":
-                return 1/(86400*frameInterval);
+                return 1 / (86400 * frameInterval);
             default:
                 return frameInterval;
         }
