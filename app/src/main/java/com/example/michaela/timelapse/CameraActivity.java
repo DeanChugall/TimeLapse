@@ -132,10 +132,10 @@ public class CameraActivity extends AppCompatActivity {
         String cameraChoice = sharedPref.getString("Camera", "rear");
         if (cameraChoice.equals("front")) {
             mCamera = CameraHelper.getDefaultFrontFacingCameraInstance();
-            mCamera.setDisplayOrientation(90);
+            //mCamera.setDisplayOrientation(90);
         } else {
             mCamera = CameraHelper.getDefaultBackFacingCameraInstance();
-            mCamera.setDisplayOrientation(270);
+           // mCamera.setDisplayOrientation(270);
         }
 
         // We need to make sure that our preview and recording video size are supported by the
